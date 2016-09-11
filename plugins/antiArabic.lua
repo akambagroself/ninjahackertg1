@@ -1,50 +1,53 @@
-antiarabic = {}-- An empty table for solving multiple kicking problem
+--[[
 
+     **************************
+     * NinjaHacker Plugins... *
+     *                        *
+     *     By @NinjaHacker    *
+     *                        *
+     *  Channel > @CLi_Api    *
+     **************************
+	 
+]]
 do
+
 local function run(msg, matches)
-  if is_momod(msg) then -- Ignore mods,owner,admins
-    return
-  end
-  local data = load_data(_config.moderation.data)
-  if data[tostring(msg.to.id)]['settings']['lock_arabic'] then
-    if data[tostring(msg.to.id)]['settings']['lock_arabic'] == 'yes' then
-	  if is_whitelisted(msg.from.id) then
-		return
-	  end
-      if antiarabic[msg.from.id] == true then 
-        return
-      end
-	  if msg.to.type == 'chat' then
-		local receiver = get_receiver(msg)
-		local username = msg.from.username
-		local name = msg.from.first_name
-		if username and is_super_group(msg) then
-			send_large_msg(receiver , "Arabic/Persian is not allowed here\n@"..username.."["..msg.from.id.."]\nStatus: User kicked/msg deleted")
-		else
-			send_large_msg(receiver , "Arabic/Persian is not allowed here\nName: "..name.."["..msg.from.id.."]\nStatus: User kicked/msg deleted")
-		end
-		local name = user_print_name(msg.from)
-		savelog(msg.to.id, name.." ["..msg.from.id.."] kicked (arabic was locked) ")
-		local chat_id = msg.to.id
-		local user_id = msg.from.id
-			kick_user(user_id, chat_id)
-		end
-		antiarabic[msg.from.id] = true
+  if matches[1] == 'bot' then
+    if is_sudo(msg) then
+    send_document(get_receiver(msg), "./data/me/version.webp", ok_cb, false)
+      return "NinjaHackerBot \n---------------------------------------------\n|An Advanced Bot Based On #LUA|\n\n> Bot Number : +19092545429\n---------------------------------------------\n #Developer : [@NinjaHacker  | @PVNinjaBot ]\n---------------------------------------------\n #Sudoers :\n1 > [#NinjaHacker]\n2 > [#AkAm]\n3 > [#Ninja_Hacker]\n4 > [#Mr_Ninja]\n---------------------------------------------\n> Channel : @CLi_Api"
+    elseif is_admin1(msg) then
+    send_document(get_receiver(msg), "./data/me/admin.webp", ok_cb, false)
+      return "You're Admin"
+    elseif is_owner(msg) then
+    send_document(get_receiver(msg), "./data/me/owner.webp", ok_cb, false)
+      return "You're Owner"
+    elseif is_momod(msg) then
+    send_document(get_receiver(msg), "./data/me/mod.webp", ok_cb, false)
+      return "You're Moderator"
+    else
+    send_document(get_receiver(msg), "./data/me/mmbr.webp", ok_cb, false)
+      return "You're Just member :("
     end
   end
-  return
-end
-
-local function cron()
-  antiarabic = {} -- Clear antiarabic table 
 end
 
 return {
   patterns = {
-    "([\216-\219][\128-\191])"
+    "^[#!/]([Bb]ot)$",
+    "^([Bb]ot)$"
     },
-  run = run,
-  cron = cron
+  run = run
 }
-
 end
+--[[
+
+     **************************
+     * NinjaHacker Plugins... *
+     *                        *
+     *   By @NinjaHacker      *
+     *                        *
+     *  Channel > @CLi_Api    *
+     **************************
+	 
+]]
