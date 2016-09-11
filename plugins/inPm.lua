@@ -90,9 +90,9 @@ if to == 'user' or service or is_admin1(msg) and to == "chat" or to == "channel"
 	end
     if matches[1] == 'join' then
 	local data = load_data(_config.moderation.data)
-	if matches[2]:lower() == 'blackplus' and matches[3]:lower() == 'support' then
-		savelog(msg.to.id, name_log.." ["..msg.from.id.."] tried to join blackplus support")
-		local target = 1031459611
+	if matches[2]:lower() == 'ninjahackertg' and matches[3]:lower() == 'support' then
+		savelog(msg.to.id, name_log.." ["..msg.from.id.."] tried to join NinjaHackerTG support")
+		local target = 1053950302
 		local long_id = data[tostring(target)]['long_id']
 		if is_banned(msg.from.id, tostring(target)) then
 			return 'You are banned.'
@@ -113,12 +113,12 @@ if to == 'user' or service or is_admin1(msg) and to == "chat" or to == "channel"
 		channel_invite(channel, user, ok_cb, false)
 	elseif matches[2]:lower() == 'persian' and matches[3]:lower() == 'support' then
 		savelog(msg.to.id, name_log.." ["..msg.from.id.."] tried to join Persian support")
-		local target = 1031459611
+		local target = 1053950302
 		local long_id = data[tostring(target)]['long_id']
 		if is_banned(msg.from.id, tostring(target)) then
 			return 'You are banned.'
 		end
-		if data[tostring(target)]['settings']['lock_member'] == 'yes' and not is_owner2(msg.from.id, '36088606') then
+		if data[tostring(target)]['settings']['lock_member'] == 'yes' and not is_owner2(msg.from.id, '118208388') then
 			return 'Group is private.'
 		end
 		if is_admin1(msg) then
@@ -208,7 +208,7 @@ if to == 'user' or service or is_admin1(msg) and to == "chat" or to == "channel"
 
 	if matches[1] == 'help' and msg.to.type == 'user' or matches[1] == 'pmhelp' and is_admin1(msg) and msg.to.type ~= 'user' then
       	savelog(msg.to.id, name_log.." ["..msg.from.id.."] used pm help")
-		text = "Welcome to BlackPlus!\n\n>To get a new BlackPlus group, contact a support group:\n https://telegram.me/joinchat/A2ETvD160xvoj4y_pNAgig\n\nFor more information, check out our channels:\n\n@Black_CH \n\nUse #superhelp command to show bot commands!!\n\n#Thanks_for_using @BlackPlus!"
+		text = "Welcome to NinjaHackerTG!\n\n>To get a new NinjaHackerTG group, contact a support group:\n https://telegram.me/joinchat/Bwu3hD7SAV7qBaqt3n0i0A\n\nFor more information, check out our channels:\n\n@CLi_APi \n\nUse #superhelp command to show bot commands!!\n\n#Thanks_for_using @CLi_APi!"
      	return text
     end
 
