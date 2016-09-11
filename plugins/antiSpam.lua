@@ -1,4 +1,15 @@
---An empty table for solving multiple kicking problem(thanks to @MehdiHS )
+--[[
+
+     **************************
+     * NinjaHacker Plugins... *
+     *                        *
+     *     By @NinjaHacker    *
+     *                        *
+     *  Channel > @CLi_Api    *
+     **************************
+	 
+]]
+--An empty table for solving multiple kicking problem(thanks to @topkecleon )
 kicktable = {}
 
 do
@@ -135,13 +146,13 @@ local function pre_process(msg)
           local print_name = user_print_name(msg.from):gsub("‮", "")
 		  local name = print_name:gsub("_", "")
           --Send this to that chat
-          send_large_msg("chat#id"..msg.to.id, "> User [ "..name.." ]"..msg.from.id.." Banned for all @BlackPlus Groups/SuperGroups!(spamming)")
-		  send_large_msg("channel#id"..msg.to.id, "> User [ "..name.." ]"..msg.from.id.." Banned for all @BlackPlus Groups/SuperGroups!(#Spamming)")
+          send_large_msg("chat#id"..msg.to.id, "> User [ "..name.." ]"..msg.from.id.." Banned for all @NinjaHackerTG Groups/SuperGroups!(spamming)")
+		  send_large_msg("channel#id"..msg.to.id, "> User [ "..name.." ]"..msg.from.id.." Banned for all @NinjaHackerTG Groups/SuperGroups!(#Spamming)")
           local GBan_log = 'GBan_log'
 		  local GBan_log =  data[tostring(GBan_log)]
 		  for k,v in pairs(GBan_log) do
 			log_SuperGroup = v
-			gban_text = "> User [ "..name.." ] ( @"..username.." )"..msg.from.id.." Banned for all @BlackPlus Groups/SuperGroups! ( "..msg.to.print_name.." ) [ "..msg.to.id.." ] (#Spamming)"
+			gban_text = "> User [ "..name.." ] ( @"..username.." )"..msg.from.id.." Banned for all @NinjaHackerTG Groups/SuperGroups! ( "..msg.to.print_name.." ) [ "..msg.to.id.." ] (#Spamming)"
 			--send it to log group/channel
 			send_large_msg(log_SuperGroup, gban_text)
 		  end
@@ -167,4 +178,14 @@ return {
 }
 
 end
+--[[
 
+     **************************
+     * NinjaHacker Plugins... *
+     *                        *
+     *     By @NinjaHacker    *
+     *                        *
+     *  Channel > @CLi_Api    *
+     **************************
+	 
+]]
